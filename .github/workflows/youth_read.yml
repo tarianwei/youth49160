@@ -7,12 +7,13 @@ on:
   workflow_dispatch:
   schedule:
      - cron: '6 1,4,7 * * *'
+#BJ TIME 9:06,12:06,15:06
   watch:
     types: started
 jobs:
   build:
     runs-on: ubuntu-latest
-   # if: github.event.repository.owner.id == github.event.sender.id
+    if: github.event.repository.owner.id == github.event.sender.id
     env:
       YOUTH_READ: ${{ secrets.YOUTH_READ }}
 
@@ -27,7 +28,7 @@ jobs:
           npm install
           
       - name: '运行 【中青看点自动阅读一】'
-#        if: env.YOUTH_READ
+        if: env.YOUTH_READ
         run: |
           node Task/Youth_Read.js
         env:
