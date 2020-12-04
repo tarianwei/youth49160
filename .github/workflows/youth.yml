@@ -6,7 +6,7 @@ name: youth
 on:
   workflow_dispatch:
   schedule:
-     - cron: '5 */4 * * *' #每4小时5运行一次
+     - cron: '*/12 * * * *' #每12分钟运行一次
   watch:
     types: started
 
